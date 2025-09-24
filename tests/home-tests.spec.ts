@@ -12,4 +12,5 @@ test('go to dropdown page, sync', async ({ page }) => {
     await homePage.clickOnDropdown()
     let mydropdownPage = new DropdownPage(page)
     await mydropdownPage.selectOptionFromDropdown('Option 1')
+    await mydropdownPage.verifyOptionIsSelected('Option 1')
 })
