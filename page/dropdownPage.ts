@@ -1,10 +1,11 @@
-import{Locator, Page, test} from '@playwright/test'
+import{expect, Locator, Page, test} from '@playwright/test'
 export class DropdownPage {
-    selectOption:Locator;
+    selectOptionDropdown:Locator;
     constructor(page:Page){
-        this.selectOption=page.locator('#dropdown')
+        this.selectOptionDropdown=page.locator('#dropdown')
     }
     async selectOptionFromDropdown(option:string):Promise<void>{
-        await this.selectOption.selectOption(option)
+        await this.selectOptionDropdown.selectOption(option)
+        await expect(this.selectOptionDropdown).toHaveValue(option) 
 }
 }
