@@ -8,7 +8,7 @@ export class HomePage {
         this.title = page.getByRole('heading', { name: 'Welcome to the-internet' })
         this.dropdown = page.getByRole('link', { name: 'Dropdown' })
     }
-    async testingOfTheTitle(): Promise<void> {
+    async testingOfForgotPassword(): Promise<void> {
         await this.forgotPasswordLink.click()
     }
     async clickOnDropdown(): Promise<void> {
