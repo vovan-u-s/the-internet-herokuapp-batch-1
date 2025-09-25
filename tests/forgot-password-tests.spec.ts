@@ -17,5 +17,5 @@ test.only('check notification message', async ({ page }) => {
     let newHomePage = new HomePage(page)
     await newHomePage.testingOfNotificationMessage()
     let notificationMessagePage = new NotificationMessagePage(page)
-    await notificationMessagePage.verifyMainTitleMessage('Action unsuccesful, please')
+    await notificationMessagePage.verifyMainTitleMessage(' Action unsuccesful, please try again')
 })
