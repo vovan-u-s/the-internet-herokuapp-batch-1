@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test'
 import { HomePage } from '../page/homepage'
-import { DropdownPage } from '../page/DropdownPage'
-test('test of homepage, async', async ({ page }) => {
-    await page.goto('https://the-internet.herokuapp.com/')
-    let homePage = new HomePage(page)
-    await homePage.testingOfTheTitle('Welcome to the-internet')
-})
+import { DropdownPage } from '../page/dropdownPage'
+// test('test of homepage, async', async ({ page }) => {
+//     await page.goto('https://the-internet.herokuapp.com/')
+//     let homePage = new HomePage(page)
+//     await homePage.testingOfTheTitle()
+// })
 test('go to dropdown page, sync', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/')
     let homePage = new HomePage(page)

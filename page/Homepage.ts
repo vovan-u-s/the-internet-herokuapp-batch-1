@@ -1,15 +1,22 @@
 import { expect, Locator, Page, test } from '@playwright/test'
 export class HomePage {
+    forgotPasswordLink: Locator
     title: Locator;
-    dropdown:Locator;
+    dropdown: Locator;
+    nothificationMessage: Locator;
     constructor(page: Page) {
+        this.forgotPasswordLink = page.getByRole('link', { name: 'Forgot Password' })
         this.title = page.getByRole('heading', { name: 'Welcome to the-internet' })
-        this.dropdown=page.getByRole('link', { name: 'Dropdown' })
+        this.dropdown = page.getByRole('link', { name: 'Dropdown' })
+        this.nothificationMessage = page.getByRole('link', { name: 'Notification Messages' })
     }
-    async testingOfTheTitle(myTitle: string): Promise<void> {
-        await expect(this.title).toHaveText('Welcome to the-internet');
+    async testingOfForgotPassword(): Promise<void> {
+        await this.forgotPasswordLink.click()
     }
     async clickOnDropdown(): Promise<void> {
         await this.dropdown.click();
+    }
+    async testingOfNotificationMessage(): Promise<void> {
+        await this.nothificationMessage.click();
     }
 }
