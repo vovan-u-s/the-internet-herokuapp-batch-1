@@ -17,3 +17,20 @@ test('test of check form authentication', async ({ page }) => {
 
 
 })
+test('negative login test', async ({ page }) => {
+    await page.goto('https://the-internet.herokuapp.com/')
+    let homePage = new HomePage(page)
+    await homePage.clickOnFormAuthentication()
+    let formAuthenticationPage = new FormAuthenticationPage(page)
+    await formAuthenticationPage.enterUsernameAndPasswordAndPressLogin('dfhdfhdfhd', 'SuperSecretPassword!')
+    await formAuthenticationPage.verifyInvalidUsernameMessageIsVisible()
+})
+test('negative password test', async ({ page }) => {
+    await page.goto('https://the-internet.herokuapp.com/')
+    let homePage = new HomePage(page)
+    await homePage.clickOnFormAuthentication()
+    let formAuthenticationPage = new FormAuthenticationPage(page)
+    await formAuthenticationPage.enterUsernameAndPasswordAndPressLogin('tomsmith', 'fgdfgdfgd')
+    await formAuthenticationPage.verifyInvalidPasswordMessageIsVisible()
+    
+})
