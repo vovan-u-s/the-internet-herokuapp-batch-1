@@ -7,8 +7,9 @@ test('test of check box link', async ({ page }) => {
     let homePage = new HomePage(page)
     await homePage.clickOnCheckboxes()
     let checkBoxPage = new CheckBoxPage(page)
-    await checkBoxPage.validateCheckBoxes1()
-    await checkBoxPage.validateCheckBoxes2()
-    await checkBoxPage.clickOnCheckBox1()
+    await checkBoxPage.validateFirstCheckboxIsUnchecked()
+    await checkBoxPage.validateSecondCheckboxIsChecked()
+    await checkBoxPage.clickFirstCheckbox()
+    await checkBoxPage.validateFirstCheckboxIsChecked()
 
 }) 

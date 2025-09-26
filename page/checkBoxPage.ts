@@ -1,19 +1,21 @@
 import { expect, Locator, Page, test } from '@playwright/test'
 export class CheckBoxPage {
-    checkBox1: Locator;
-    checkBox2: Locator;
+    firstCheckbox: Locator;
+    secondCheckbox: Locator;
     constructor(page: Page) {
-        this.checkBox1 = page.getByRole('checkbox').first()
-        this.checkBox2 = page.getByRole('checkbox').nth(1)
+        this.firstCheckbox = page.getByRole('checkbox').first()
+        this.secondCheckbox = page.getByRole('checkbox').nth(1)
     }
-    async validateCheckBoxes1(): Promise<void> {
-        await expect(this.checkBox1).toBeChecked()
+    async validateFirstCheckboxIsUnchecked(): Promise<void> {
+        await expect(this.firstCheckbox).not.toBeChecked()
     }
-    async validateCheckBoxes2(): Promise<void> {
-        await expect(this.checkBox2).toBeChecked()
+    async validateSecondCheckboxIsChecked(): Promise<void> {
+        await expect(this.secondCheckbox).toBeChecked()
     }
-    async clickOnCheckBox1(): Promise<void> {
-        await this.checkBox1.click()
-        await this.validateCheckBoxes1()
+    async clickFirstCheckbox(): Promise<void> {
+        await this.firstCheckbox.click()
+    }
+    async validateFirstCheckboxIsChecked(): Promise<void> {
+        await expect(this.firstCheckbox).toBeChecked()
     }
 }
